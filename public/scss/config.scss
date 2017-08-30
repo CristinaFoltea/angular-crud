@@ -1,0 +1,25 @@
+$base_font : 'Lato', sans-serif;
+$decor_font : 'Quicksand', sans-serif;
+$black : #3B3B39;
+$grey : #9DA4AA;
+$off-white : #E4E6E5;
+$blue : #31ADD6;
+$cream : #C6BEBB;
+
+p, div {
+  font-family: $base_font;
+  font-size: 14px;
+}
+
+h1, h2, h3, h4 {
+  font-family: $decor_font;
+  margin: 10px 0;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+label {
+  font-size: 14px;
+  font-family: $base_font;
+  text-transform: capitalize;
+}

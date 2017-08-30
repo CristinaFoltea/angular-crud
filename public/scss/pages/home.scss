@@ -1,0 +1,19 @@
+@import '../../app/resource-list/resource-list';
+
+
+.layout-home {
+  padding: 100px 0;
+}
+
+.layout-home__new-entry {
+  position: absolute;
+  right: 20px;
+  top: 120px;
+  a {
+    text-decoration: none;
+    color: white;
+    font-family: $decor_font;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+}

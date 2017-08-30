@@ -1,0 +1,59 @@
+<div class="resource-entry">
+  <div class="resource-entry__wrapper">
+    <h2 class="resource-entry__title">{{!prepopulated ? "Create New Entry" : "Update Entry" }}</h2>
+    <form>
+      <div class="resource-entry__name resource-entry__item">
+        <div>
+          <h3>Title</h3>
+          <input type="text" class="input-field" name="" value="{{item.title}}" placeholder="{{prepopulated ? item.title :  'Add resource title'}}" ng-model="data.title" required>
+        </div>
+      </div>
+
+      <div class="resource-entry__author resource-entry__item">
+        <div>
+          <h3>Author</h3>
+          <input type="text" class="input-field" name="" value="{{item.author}}" placeholder="{{prepopulated ? item.author : 'Add resource author'}}" ng-model="data.author" required>
+        </div>
+      </div>
+
+      <div class="resource-entry__source-link resource-entry__item">
+        <div>
+          <h3>resource link</h3>
+          <input type="text" class="input-field" name="" value="{{item.home_link}}" placeholder="{{prepopulated ? item.home_link : 'Add resource home link'}}" ng-model="data.home_link">
+        </div>
+      </div>
+
+      <div class="resource-entry__type resource-entry__item">
+        <h3>Media Type</h3>
+        <input type="text" class="input-field" placeholder="{{prepopulated ? item.media_type : 'Add resource type '}}" ng-model="data.media_type" value="data.media_type">
+
+        <h3>{{prepopulated ? 'Change Type' : 'or Choose Existing Type'}}</h3>
+        <select name="media-type" id="" ng-model="data.media_type">
+          <option value="">Choose Media Type</option>
+          <option ng-repeat="media in mediaTypes track by $index" ng-selected="media == item.media_type" value="{{media}}">{{media}}</option>
+        </select>
+      </div>
+
+      <div class="resource-entry__type resource-entry__item">
+        <div ng-if="item.category.length">
+          <h3>{{item.category.length > 1 ? 'Categories' : 'Category'}}</h3>
+          <div class="fake-button" ng-click="removeCheckbox(cat)" ng-repeat="cat in item.category track by $index">{{cat}}<span class="remove"></span></div>
+        </div>
+
+        <h3>{{prepopulated ? 'Add Existing Category' : 'Choose Existing Category'}}</h3>
+        <div class="fake-button" ng-click="addCheckbox(singleCat)" ng-repeat="singleCat in allCategories track by $index">{{singleCat}}<span class="add">Add</span></div>
+
+        <h3>Add New Category</h3>
+        <input class="basic-input" type="text" placeholder="new category" value="" ng-model="newBox">
+        <span class="button" ng-click="addNewBox(newBox)">Add</span>
+      </div>
+
+
+      <button ng-click="submitForm()" class="button">{{ newEntry ? 'Save Entry' : 'Update Entry'}}</button>
+      <span ng-click="deleteEntry(item._id)" class="button" ng-if="prepopulated">Delete Entry</span>
+      <span ng-click="cancel()" class="button" ng-if="!prepopulated">Cancel</span>
+    </form>
+
+
+  </div>
+</div>

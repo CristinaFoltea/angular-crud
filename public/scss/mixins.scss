@@ -1,0 +1,23 @@
+@mixin ghost-center( $_child: false ) {
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+  }
+  @if($_child) {
+    #{$_child} {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}

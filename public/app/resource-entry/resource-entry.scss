@@ -1,0 +1,18 @@
+
+.resource-entry {
+  width: 90%;
+  margin: 0 auto;
+  textarea {
+    height: auto;
+  }
+  form {
+    & > div {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+    }
+  }
+}
+
+.resource-entry__item {
+
+}

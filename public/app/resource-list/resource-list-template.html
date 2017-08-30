@@ -1,0 +1,49 @@
+<div class="resource-list">
+  <div class="resource-list__wrapper">
+      <div class="resource-list__list">
+        <div class="resource-list__list-search">
+          <input type="text" class="input-field" placeholder="Search Resource" ng-model="search">
+        </div>
+        <div class="resource-list__header" ng-show="items.length">
+          <div class="resource-list__col-wrapper">
+            <div class="resource-list__header-item">
+              Title
+            </div>
+            <div class="resource-list__header-item">
+              Author
+            </div>
+            <div class="resource-list__header-item">
+              Media Type
+            </div>
+            <div class="resource-list__header-item">
+               Category
+            </div>
+          </div>
+          <div class="col-5 resource-list__header-item">
+             Source Link
+          </div>
+          <div class="col-6 resource-list__header-item">
+             Creation Date
+          </div>
+        </div>
+        <ul class="resource-list__items">
+          <li class="resource-list__item" ng-repeat="item in items | filter:search">
+            <a class="resource-list__link " href="/{{item._id}}" >
+              <div class="resource-list__item-col">&nbsp;{{item.title}}</div>
+              <div class="resource-list__item-col">&nbsp;{{item.author}}</div>
+              <div class="resource-list__item-col">&nbsp;{{item.media_type}}</div>
+              <div class="col-4 resource-list__item-col">
+                <span ng-repeat="category in item.category">&nbsp;{{category}}</span>
+              </div>
+            </a>
+            <div class="col-5 resource-list__item-col">
+              <a href="{{item.home_link}}" class="resource-list__home-link" target="_blank">&nbsp;{{item.home_link}}</a>
+            </div>
+            <a class="resource-list__link col-6" href="/{{item._id}}">
+              <span>{{item.creation_time | date : "MM-dd-yyyy"}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>
