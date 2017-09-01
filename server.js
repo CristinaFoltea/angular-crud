@@ -8,10 +8,8 @@ var bodyParser = require('body-parser');    // pull information from HTML POST (
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 var resRouter = express.Router();
 var PORT = process.env.PORT || 8080;
-// var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/resourceApi';
 
 
-// var MONGODB_URI = 'mongodb://crisswear:i am mongo@ds141242.mlab.com:41242/resources_api?authMechanism=SCRAM-SHA-1'; ///bad practice
 var MONGODB_URI = process.env.MONGODB_URI;
 mongoose.connect(MONGODB_URI);     // connect to mongoDB database
 
@@ -31,7 +29,6 @@ mongoose.connection.on('error',function (err) {
 mongoose.connection.on('disconnected', function () {
   console.log('Mongoose default connection disconnected');
 });
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/resourceApi');     // connect to mongoDB database
 
 //creating data model
 var resModel = new Schema({
