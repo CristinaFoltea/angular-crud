@@ -27,11 +27,13 @@
         <h3>Media Type</h3>
         <input type="text" class="input-field" placeholder="{{prepopulated ? item.media_type : 'Add resource type '}}" ng-model="data.media_type" value="data.media_type">
 
-        <h3>{{prepopulated ? 'Change Type' : 'or Choose Existing Type'}}</h3>
-        <select name="media-type" id="" ng-model="data.media_type">
-          <option value="">Choose Media Type</option>
-          <option ng-repeat="media in mediaTypes track by $index" ng-selected="media == item.media_type" value="{{media}}">{{media}}</option>
-        </select>
+        <div ng-show="mediaTypes.length">
+          <h3>{{prepopulated ? 'Change Type' : 'or Choose Existing Type'}}</h3>
+          <select name="media-type" id="" ng-model="data.media_type">
+            <option value="">Choose Media Type</option>
+            <option ng-repeat="media in mediaTypes track by $index" ng-selected="media == item.media_type" value="{{media}}">{{media}}</option>
+          </select>
+        </div>
       </div>
 
       <div class="resource-entry__type resource-entry__item">
@@ -40,8 +42,10 @@
           <div class="fake-button" ng-click="removeCheckbox(cat)" ng-repeat="cat in item.category track by $index">{{cat}}<span class="remove"></span></div>
         </div>
 
-        <h3>{{prepopulated ? 'Add Existing Category' : 'Choose Existing Category'}}</h3>
-        <div class="fake-button" ng-click="addCheckbox(singleCat)" ng-repeat="singleCat in allCategories track by $index">{{singleCat}}<span class="add">Add</span></div>
+        <div ng-show="allCategories.length">
+          <h3>{{prepopulated ? 'Add Existing Category' : 'Choose Existing Category'}}</h3>
+          <div class="fake-button" ng-click="addCheckbox(singleCat)" ng-repeat="singleCat in allCategories track by $index">{{singleCat}}<span class="add">Add</span></div>
+        </div>
 
         <h3>Add New Category</h3>
         <input class="basic-input" type="text" placeholder="new category" value="" ng-model="newBox">

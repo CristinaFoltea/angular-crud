@@ -2,7 +2,7 @@ I created a simple angular crud app that displays and creates a list of resource
 
  Determining the site's file structure was a little challenging. My previous experiences and reading on best practices helped me to develop the existing structure. Since the site is fairly simple, I have the server and all the site management files at the root, and all the front-end files in the public folder.
 
- server.js has the code for app's backend. I am using Express for the server with nodemon for server restart when changes are made and express.Router for API routes. I am using mongodb for data storage and mongoose for data modeling. Initially, I tried to use heroku's add-ons for the database connection, but a timeout error made me consider other options. I ended up creating an mlab sandbox that worked for the purpose of this app. Dotenv is used to keep the batabase credential hidden.
+ server.js has the code for app's backend. I am using Express for the server with nodemon for server restart when changes are made and express.Router for API routes. I am using mongodb for data storage and mongoose for data modeling. Initially, I tried to use heroku's add-ons for the database connection, but a timeout error made me consider other options. I ended up creating an mlab sandbox that worked for the purpose of this app. Dotenv is used to keep the batabase credentials hidden.
 
  The public folder where the front-end code rests has the following structure:
   - app folder with all angular-related files
