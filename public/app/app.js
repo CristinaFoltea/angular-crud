@@ -32,7 +32,4 @@ angular.module('angular-crud', ['ngRoute'])
         enabled: true,
         requireBase: false
         });
-  }])
-  .config(['$qProvider', function ($qProvider) {
-    $qProvider.errorOnUnhandledRejections(false);
-}]);
+  }]);

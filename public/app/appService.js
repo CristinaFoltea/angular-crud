@@ -33,8 +33,9 @@ angular.module('angular-crud')
       $http.patch(url, data)
         .then(function(data) {
            deferred.resolve(data);
-         }, function (err) {
-           deferred.reject(err);
+         })
+         .catch( function (error) {
+           deferred.reject(error);
          })
 
       return deferred.promise;
@@ -45,8 +46,9 @@ angular.module('angular-crud')
         $http.delete(url)
           .then(function(data) {
              deferred.resolve(data);
-           }, function (err) {
-             deferred.reject(err);
+           })
+           .catch( function (error) {
+             deferred.reject(error);
            })
 
         return deferred.promise;

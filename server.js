@@ -1,3 +1,4 @@
+require('dotenv').load() //for enviroment variables
 var express = require('express');
 var app = express();                               // create our app w/ express
 var mongoose = require('mongoose');                     // mongoose for mongodb
@@ -10,7 +11,8 @@ var PORT = process.env.PORT || 8080;
 // var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/resourceApi';
 
 
-var MONGODB_URI = 'mongodb://crisswear:i am mongo@ds141242.mlab.com:41242/resources_api?authMechanism=SCRAM-SHA-1'; ///bad practice 
+// var MONGODB_URI = 'mongodb://crisswear:i am mongo@ds141242.mlab.com:41242/resources_api?authMechanism=SCRAM-SHA-1'; ///bad practice
+var MONGODB_URI = process.env.MONGODB_URI;
 mongoose.connect(MONGODB_URI);     // connect to mongoDB database
 
 
@@ -114,10 +116,10 @@ resRouter.route('/:id')
            })
          })
 
-  // application -------------------------------------------------------------
-  app.get('*', function(req, res) {
-      res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
-  });
+// application -------------------------------------------------------------
+app.get('*', function(req, res) {
+    res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+});
 
 // listen (start app with node server.js) ======================================
 app.listen(PORT, function () {

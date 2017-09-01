@@ -1,5 +1,7 @@
 'use strict';
 
+console.log(this);
+
 angular.module('angular-crud')
   .controller('homeController', ['$scope', '$location', 'BaseService','$window', function ($scope, $location, BaseService, $window) {
     var baseUrl = $location.absUrl();
@@ -48,12 +50,6 @@ angular.module('angular-crud')
         }, function (error) {
           console.log(error);
         })
-      },
-
-      setWatches: function () {
-      },
-
-      bindEvents: function(){
       },
 
       scope : {
