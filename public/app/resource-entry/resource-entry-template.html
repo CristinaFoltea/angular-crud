@@ -29,7 +29,7 @@
 
         <div ng-show="mediaTypes.length">
           <h3>{{prepopulated ? 'Change Type' : 'or Choose Existing Type'}}</h3>
-          <select name="media-type" id="" ng-model="data.media_type">
+          <select name="media-type" id="" ng-model="data.media_type" >
             <option value="">Choose Media Type</option>
             <option ng-repeat="media in mediaTypes track by $index" ng-selected="media == item.media_type" value="{{media}}">{{media}}</option>
           </select>
@@ -37,8 +37,8 @@
       </div>
 
       <div class="resource-entry__type resource-entry__item">
+        <h3>{{item.category.length > 1 ? 'Categories' : 'Category'}}</h3>
         <div ng-if="item.category.length">
-          <h3>{{item.category.length > 1 ? 'Categories' : 'Category'}}</h3>
           <div class="fake-button" ng-click="removeCheckbox(cat)" ng-repeat="cat in item.category track by $index">{{cat}}<span class="remove"></span></div>
         </div>
 
