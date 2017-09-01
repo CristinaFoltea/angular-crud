@@ -52,6 +52,12 @@ angular.module('angular-crud')
         })
       },
 
+      setWatches: function () {
+      },
+
+      bindEvents: function(){
+      },
+
       scope : {
 
       }
